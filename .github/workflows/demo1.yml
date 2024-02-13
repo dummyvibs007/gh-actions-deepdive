@@ -3,6 +3,12 @@ on:
   pull_request:
     types:
       - opened
+  push:
+    branches:
+      - master # trigger workflow when branch master
+      - "feat-*"
+    paths-ignore:
+      - ".github/workflows/*" #ignore workflow if file modified is in this path
 jobs:
   deploy:
     runs-on: ubuntu-latest
